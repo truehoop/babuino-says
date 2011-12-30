@@ -3,22 +3,27 @@
 function onLoad(){
 	loadPhrasesDiv();
       document.addEventListener("deviceready", onDeviceReady, true);      
-      $( "#b-left" ).bind( "click", function(event, ui) {
+      $( "#b-left" ).bind( "click", function(event, ui) {    	  
     	  setDirections("left");
-    	  generateText();    	  	
     	});      
       $( "#b-right" ).bind( "click", function(event, ui) {
     	  setDirections("right");
-    	  generateText();
     	});
     	$( "#b-generate" ).bind( "click", function(event, ui) {
+    		navigator.notification.vibrate(200);
 			navigator.notification.alert("No implemented yet...");
     	});
       generateText();
  }
  function onDeviceReady(){
-      
+	 document.addEventListener("menubutton", onMenuKeyDown, false);
+
  }
+ function onMenuKeyDown() {
+	 navigator.notification.vibrate(200);
+	 navigator.notification.alert("No implemented yet...");
+ }
+
  function generateText(){	  
 	  document.getElementById("text-top").innerHTML=
 		  document.getElementById("ph-" + arrayPosition + "_0").textContent;
@@ -27,6 +32,7 @@ function onLoad(){
 	  setTextBottomPosition();
  }
  function setDirections(direction){
+	 navigator.notification.vibrate(200);
 	 switch (direction){
 	 case "left":
  		arrayPosition--;
@@ -39,6 +45,7 @@ function onLoad(){
  			arrayPosition > ($("#phrases > div").size() / 2)  ?  1 : arrayPosition++;
 		break;
 	 }
+	 generateText();
  }
  function setTextBottomPosition(){
 	 document.getElementById("text-bottom").style.top= 300 -10
