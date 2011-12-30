@@ -28,5 +28,5 @@
    
    @font-face{
 	 font-family: MyFont; 
-	 src: url('../../impact.ttf') format('truetype');
+	 src: url('../fonts/impact.ttf') format('truetype');
    }
