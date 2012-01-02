@@ -1,26 +1,26 @@
 <!DOCTYPE HTML>
-<!-- https://github.com/jcrowson/Android-Phonegap-Screenshot-Plugin -->
-<!-- http://html2canvas.hertzen.com/screenshots.html -->
+<!-- 
+https://github.com/jcrowson/Android-Phonegap-Screenshot-Plugin
+http://html2canvas.hertzen.com/screenshots.html 
+www.botskool.com/geeks/how-convert-canvas-data-image-->
 <html>
   <head>
     <title>Babuino says...</title>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="phonegap-1.3.0.js"></script>      
-	<script type="text/javascript" charset="utf-8" src="js/functions.js"></script>	
-        <script type="text/javascript" src="js/html2canvas.js"></script>
-        <script type="text/javascript" src="js/jquery.plugin.html2canvas.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.3.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>      
+	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile.min.js"></script>    	
+    <script type="text/javascript" charset="utf-8" src="js/functions.js"></script>	
   </head>
   <body onload="onLoad();">  
   <div id="principal"> 
-  	  <div id="title">Babuino te dice...</div> 
-  	<div id="text">
-	  	<div id ="text-top" class="text header" ></div>
+  	  <div id="title">Babuino says...</div> 
+	  	<div id ="text-top" class="text" ></div>
 	  	<div id ="text-bottom" class="text" ></div>
+  	<div id="imgdiv">
+  		<img id="imagen" src="img/img-thing.jpg"/>
   	</div>
-  	<div id="imagen"></div>
   </div>
   <div id="buttons" style="text-align: center;">
 		<button id="b-left" data-inline="true" data-icon="arrow-l" data-theme="c">&nbsp;</button>

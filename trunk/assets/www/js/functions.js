@@ -1,5 +1,4 @@
  var arrayPosition=1; 
-
 function onLoad(){
 	loadPhrasesDiv();
       document.addEventListener("deviceready", onDeviceReady, true);      
@@ -10,14 +9,12 @@ function onLoad(){
     	  setDirections("right");
     	});
     	$( "#b-generate" ).bind( "click", function(event, ui) {
-    		navigator.notification.vibrate(200);
-			navigator.notification.alert("No implemented yet...");
+    		onMenuKeyDown();
     	});
       generateText();
  }
  function onDeviceReady(){
 	 document.addEventListener("menubutton", onMenuKeyDown, false);
-
  }
  function onMenuKeyDown() {
 	 navigator.notification.vibrate(200);
@@ -25,11 +22,9 @@ function onLoad(){
  }
 
  function generateText(){	  
-	  document.getElementById("text-top").innerHTML=
-		  document.getElementById("ph-" + arrayPosition + "_0").textContent;
-	  document.getElementById("text-bottom").innerHTML=
-		  document.getElementById("ph-" + arrayPosition + "_1").textContent;
-	  setTextBottomPosition();
+	 $("#text-top").html($("#ph-" + arrayPosition + "_0").text());
+	 $("#text-bottom").html($("#ph-" + arrayPosition + "_1").text());
+	  setTextPosition();
  }
  function setDirections(direction){
 	 navigator.notification.vibrate(200);
@@ -47,15 +42,21 @@ function onLoad(){
 	 }
 	 generateText();
  }
- function setTextBottomPosition(){
-	 document.getElementById("text-bottom").style.top= 300 -10
-	  - document.getElementById("text-bottom").offsetHeight
-	  - document.getElementById("text-top").offsetHeight + "px";
+ function setTextPosition(){
+	 /*Se coloca la posicion del texto inferior*/
+	 $("#text-bottom").css("top", $("#imagen").height() 
+			 - $("#text-bottom").height() + 20 + "px");
+	 /*Se calcula la posicion de los textos para colocarlos en medio*/
+	 $("#text-top").css("left", 
+		 ((document.documentElement.clientWidth / 2) 
+			-($("#imagen").width() / 2)) + "px");
+	 $("#text-bottom").css("left", 
+		 ((document.documentElement.clientWidth / 2) 
+			-($("#imagen").width() / 2)) + "px");
  }
  function loadPhrasesDiv(){
 	 var req = new XMLHttpRequest();
 	 req.open("GET", "html/phrases.html", false);
 	 req.send(null);
-	 var page = req.responseText;
-	 document.getElementById("phrases").innerHTML = page;
+	 $("#phrases").html(req.responseText);
  }
