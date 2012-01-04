@@ -27,7 +27,7 @@ function onLoad(){
 	  setTextPosition();
  }
  function setDirections(direction){
-	 navigator.notification.vibrate(200);
+	// navigator.notification.vibrate(200);
 	 switch (direction){
 	 case "left":
  		arrayPosition--;
