@@ -18,7 +18,7 @@ function onLoad(){
  }
  function onMenuKeyDown() {
 	 navigator.notification.vibrate(200);
-	 navigator.notification.alert("No implemented yet...");
+	 navigator.notification.alert("Pr&oacute;ximamente...");
  }
 
  function generateText(){	  
@@ -27,7 +27,7 @@ function onLoad(){
 	  setTextPosition();
  }
  function setDirections(direction){
-	// navigator.notification.vibrate(200);
+	 navigator.notification.vibrate(200);
 	 switch (direction){
 	 case "left":
  		arrayPosition--;
