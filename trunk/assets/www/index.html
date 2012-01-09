@@ -1,30 +1,33 @@
 <!DOCTYPE HTML>
-<!-- 
-https://github.com/jcrowson/Android-Phonegap-Screenshot-Plugin
-http://html2canvas.hertzen.com/screenshots.html 
-www.botskool.com/geeks/how-convert-canvas-data-image-->
 <html>
-  <head>
-    <title>Babuino dice...</title>
-    <link rel="stylesheet" href="css/jquery.mobile.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.3.0.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>      
-	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile.min.js"></script>    	
-    <script type="text/javascript" charset="utf-8" src="js/functions.js"></script>	
-  </head>
-  <body onload="onLoad();">  
-  	  <div id="title">Babuino dice...</div> 
-	  	<div id ="text-top" class="text" ></div>
-	  	<div id ="text-bottom" class="text" ></div>
-  	<div id="imgdiv">
-  		<img id="imagen" src="img/img-thing.jpg"/>
-  	</div>
-  <div id="buttons" style="text-align: center;">
-		<button id="b-left" data-inline="true" data-icon="arrow-l" data-theme="c">&nbsp;</button>
-		<button id="b-generate" data-inline="true" data-icon="check" data-theme="e">Share</button>
-		<button id="b-right" data-inline="true" data-icon="arrow-r" data-iconpos="right" data-theme="c">&nbsp;</button>
-  </div>
-  <div id="phrases" style="display: none"></div>
-  </body>
+	<head>
+		<title>Babuino dice...</title>
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" charset="utf-8" src="js/phonegap-1.3.0.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>      
+		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile.min.js"></script>    	
+		<script type="text/javascript" charset="utf-8" src="js/functions.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/html2canvas.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/base64.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/canvas2image.js"></script>  
+	</head>
+	<body onload="onLoad();">  
+		<div id="title">Babuino dice...</div> 
+		<div id="imgdiv">
+			<div id ="text-top" class="text" ></div>
+			<div id ="text-bottom" class="text" ></div>
+		  	<img id="background" src="img/img-thing.jpg"/>
+		 	</div>
+		<div id="buttons" style="text-align: center;">
+			<button id="b-left" data-inline="true" data-icon="arrow-l" data-theme="c">&nbsp;</button>
+			<button id="b-generate" data-inline="true" data-icon="check" data-theme="e">Share</button>
+			<button id="b-right" data-inline="true" data-icon="arrow-r" data-iconpos="right" data-theme="c">&nbsp;</button>
+		</div>
+		<div style="display: none">
+			<div id="phrases"></div>
+			<div id="canvas"></div>
+			<div id="imagen2"></div>
+		</div>  
+	</body>
 </html>
