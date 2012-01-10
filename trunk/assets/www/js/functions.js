@@ -23,7 +23,11 @@ function onLoad(){
     	  setDirections("right");
     	});
     	$( "#b-generate" ).bind( "click", function(event, ui) {
+    		
     		generateCanvas();   		  		
+    	});
+    	$( "#b-share" ).bind( "click", function(event, ui) {
+    		$.mobile.changePage("html/menu.html", { transition: "slideup"});
     	});
       getText();
  }
@@ -57,7 +61,7 @@ function onLoad(){
   * Reposiciona el texto y apaga controles para generar el canvas
   */
  function generateCanvas(){
-	 setTextPosition(-5);
+	 setTextPosition(-5);	 
 	 hideDivs();
 	 $('body').html2canvas();  
  }
@@ -116,10 +120,12 @@ function onLoad(){
   * @param oCanvas el objeto canvas del cual se obtiene la imagen
   */
  function saveCanvas(oCanvas){
+	 
 	 $("#imagen2").html("");
 	 oImgJPEG = Canvas2Image.saveAsBMP(oCanvas, true, 300, 300);
 	 $("#imagen2").html(oImgJPEG);
 	 //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	 $.mobile.hidePageLoadingMsg();
  } 
  
  /**
@@ -128,6 +134,7 @@ function onLoad(){
  function hideDivs(){
 	 $('#buttons').toggle();
 	 $('#title').toggle();
+	 $.mobile.hidePageLoadingMsg();
  }
  
  /**
@@ -142,9 +149,9 @@ function onLoad(){
 	                var queue = html2canvas.Parse(this[0], images, options),
 	                $canvas = $(html2canvas.Renderer(queue, options));           
 	          	    $('#canvas').html($canvas);
-	          	    hideDivs();
+	          	    hideDivs();	          	  
 	        	  	setTextPosition(20);
-	        	  	saveCanvas($("#canvas").children()[0]);
+	        	  	saveCanvas($("#canvas").children()[0]);	        	  	
 	            }
 	        }, options));	       
 	    };
